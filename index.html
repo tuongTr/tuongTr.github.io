@@ -1,7 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akinator Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f8f9fa;
+            color: #333;
+            padding: 20px;
+            display: flex;
+        }
+        #sidebar {
+            width: 250px;
+            background: #ffffff;
+            padding: 20px;
+            text-align: left;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+        #main-content {
+            margin-left: 270px;
+            flex-grow: 1;
+        }
+        #question-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            animation: fadeIn 1s;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 22px;
+        }
+        #character-image {
+            max-width: 200px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        let currentQuestionIndex = 0;
+        let answers = {};
+        let questions = {{ questions|tojson|safe }};
+        let characters = {{ character_data.keys()|list|tojson|safe }};
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                document.getElementById("question").innerText = "Does your character " + questions[currentQuestionIndex] + "?";
+            } else {
+                submitAnswers();
+            }
+        }
+
+        function recordAnswer(answer) {
+            answers[questions[currentQuestionIndex]] = answer;
+            currentQuestionIndex++;
+            showNextQuestion();
+        }
+
+        function submitAnswers() {
+            fetch("/submit", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(answers)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("question-container").innerHTML = `
+                    <h2>I think your character is: ${data.character}</h2>
+                    <img id="character-image" src="${data.image}" alt="${data.character}">
+                `;
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            showNextQuestion();
+            let sidebar = document.getElementById("sidebar");
+            characters.forEach(character => {
+                let charElement = document.createElement("p");
+                charElement.textContent = character;
+                sidebar.appendChild(charElement);
+            });
+        });
+    </script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div id="sidebar">
+        <h3>Characters</h3>
+    </div>
+    <div id="main-content">
+        <h1>Welcome to Akinator!</h1>
+        <div id="question-container">
+            <p id="question"></p>
+            <button onclick="recordAnswer('yes')">Yes</button>
+            <button onclick="recordAnswer('no')">No</button>
+        </div>
+        <div id="result"></div>
+    </div>
 </body>
 </html>
