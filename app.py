@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
 import json
 import random
+import os
+from flask import render_template_string
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 
 
 def load_characters(filename="characters.json"):
@@ -22,7 +24,9 @@ questions = list(questions)
 @app.route('/')
 def index():
     selected_questions = random.sample(questions, 3)  # Select 3 random questions
-    return render_template("index.html", questions=selected_questions, character_data=character_data)
+    with open("index.html", "r") as file:
+        html_content = file.read()
+    return render_template_string(html_content, questions=selected_questions, character_data=character_data)
 
 
 @app.route('/submit', methods=['POST'])
