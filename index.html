@@ -97,8 +97,20 @@
                 document.getElementById("question-container").innerHTML = `
                     <h2>I think your character is: ${data.character}</h2>
                     <img id="character-image" src="${data.image}" alt="${data.character}">
+                    <br>
+                    <button id="new-game" onclick="newGame()" style="background: #28a745; padding: 10px 20px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; color: white;">New Game</button>
                 `;
             });
+        }
+
+        function newGame() {
+            fetch("/new_game")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.new_game) {
+                        window.location.reload();
+                    }
+                });
         }
 
         document.addEventListener("DOMContentLoaded", function() {

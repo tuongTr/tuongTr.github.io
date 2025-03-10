@@ -45,5 +45,10 @@ def submit():
     return jsonify({"character": best_match, "image": image_path})
 
 
+@app.route('/new_game', methods=['GET'])
+def new_game():
+    return jsonify({"new_game": True})
+
+
 if __name__ == "__main__":
     app.run(debug=True)
