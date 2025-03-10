@@ -23,7 +23,7 @@ questions = list(questions)
 
 @app.route('/')
 def index():
-    selected_questions = random.sample(questions, 3)  # Select 3 random questions
+    selected_questions = random.sample(questions, 5)  # Select 5 random questions
     with open("index.html", "r") as file:
         html_content = file.read()
     return render_template_string(html_content, questions=selected_questions, character_data=character_data)
