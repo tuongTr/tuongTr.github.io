@@ -1,14 +1,123 @@
 {
-    "Harry Potter": {"Has a wand": 10, "Wears glasses": 5, "Is a wizard": 10, "Has a scar": 10, "Has a pet owl": 8, "Attended a magic school": 10, "Has a best friend duo": 9},
-    "Sherlock Holmes": {"Has a wand": -5, "Wears glasses": 2, "Is a detective": 10, "Smokes a pipe": 8, "Has a sidekick": 10, "Solves mysteries": 10, "Lives in London": 9},
-    "Batman": {"Has a wand": -10, "Wears glasses": -5, "Is a detective": 8, "Wears a mask": 10, "Is a billionaire": 10, "Has a Batcave": 10, "Fights crime at night": 10, "Uses gadgets": 10},
-    "Iron Man": {"Has a wand": -10, "Wears glasses": 3, "Is a detective": 3, "Wears a mask": 10, "Is a billionaire": 10, "Has a high-tech suit": 10, "Is a genius inventor": 10, "Has an AI assistant": 9},
-    "Gandalf": {"Has a wand": 10, "Wears glasses": -5, "Is a wizard": 10, "Has a long beard": 10, "Fights with a staff": 10, "Is very old": 10, "Guides heroes": 9},
-    "Spider-man": {"Has a wand": -10, "Wears glasses": 2, "Is a detective": 2, "Wears a mask": 10, "Is a teenager": 10, "Shoots webs": 10, "Has super agility": 9, "Lives in New York": 10},
-    "Darth Vader": {"Has a wand": -10, "Wears glasses": -5, "Is a wizard": -10, "Wears a mask": 10, "Is a villain": 10, "Uses the Force": 10, "Has a red lightsaber": 10, "Is a former hero": 9},
-    "Superman": {"Has a wand": -10, "Wears glasses": 5, "Is a detective": -5, "Wears a mask": -5, "Can fly": 10, "Is from another planet": 10, "Has super strength": 10, "Works as a reporter": 9},
-    "Wonder Woman": {"Has a wand": -10, "Wears glasses": -5, "Is a detective": -2, "Wears a mask": -5, "Has super strength": 10, "Wields a lasso": 10, "Is an Amazon warrior": 10, "Uses a shield": 9},
-    "Joker": {"Has a wand": -10, "Wears glasses": -5, "Is a detective": -10, "Wears a mask": 5, "Is a villain": 10, "Has a sinister laugh": 10, "Loves chaos": 10, "Has green hair": 9},
-    "Yoda": {"Has a wand": -10, "Wears glasses": -5, "Is a wizard": 10, "Is wise": 10, "Speaks in riddles": 10, "Uses a green lightsaber": 10, "Is very small": 9},
-    "Elsa": {"Has a wand": -5, "Wears glasses": -5, "Is a wizard": 5, "Has ice powers": 10, "Sings a lot": 10, "Is a queen": 10, "Has a sister": 9}
+    "Harry Potter": {
+        "Has a wand": 10,
+        "Wears glasses": 10,
+        "Is a wizard": 10,
+        "Has a scar": 10,
+        "Has a pet owl": 8,
+        "Attended a magic school": 10,
+        "Has a best friend duo": 9,
+        "Is an excellent Quidditch player": 9
+    },
+    "Sherlock Holmes": {
+        "Has a wand": -10,
+        "Wears glasses": 0,
+        "Is a detective": 10,
+        "Smokes a pipe": 10,
+        "Has a sidekick": 10,
+        "Solves mysteries": 10,
+        "Lives in London": 10,
+        "Is highly intelligent": 10
+    },
+    "Batman": {
+        "Has a wand": -10,
+        "Wears glasses": -10,
+        "Is a detective": 10,
+        "Wears a mask": 10,
+        "Is a billionaire": 10,
+        "Has a Batcave": 10,
+        "Fights crime at night": 10,
+        "Uses gadgets": 10,
+        "Has a tragic past": 10
+    },
+    "Iron Man": {
+        "Has a wand": -10,
+        "Wears glasses": 0,
+        "Is a detective": 1,
+        "Wears a mask": 10,
+        "Is a billionaire": 10,
+        "Has a high-tech suit": 10,
+        "Is a genius inventor": 10,
+        "Has an AI assistant": 9
+    },
+    "Gandalf": {
+        "Has a wand": 10,
+        "Wears glasses": -10,
+        "Is a wizard": 10,
+        "Has a long beard": 10,
+        "Fights with a staff": 10,
+        "Is very old": 10,
+        "Guides heroes": 10
+    },
+    "Spider-Man": {
+        "Has a wand": -10,
+        "Wears glasses": 0,
+        "Is a detective": 2,
+        "Wears a mask": 10,
+        "Is a teenager": 10,
+        "Shoots webs": 10,
+        "Has super agility": 10,
+        "Has super strength": 7,
+        "Lives in New York": 10
+    },
+    "Darth Vader": {
+        "Has a wand": -10,
+        "Wears glasses": -10,
+        "Is a wizard": -10,
+        "Wears a mask": 10,
+        "Is a villain": 10,
+        "Uses the Force": 10,
+        "Has a red lightsaber": 10,
+        "Is a former hero": 9,
+        "Wears black armor": 10
+    },
+    "Superman": {
+        "Has a wand": -10,
+        "Wears glasses": 5,
+        "Is a detective": -10,
+        "Wears a mask": -10,
+        "Can fly": 10,
+        "Is from another planet": 10,
+        "Has super strength": 10,
+        "Works as a reporter": 9
+    },
+    "Wonder Woman": {
+        "Has a wand": -10,
+        "Wears glasses": -10,
+        "Is a detective": -5,
+        "Wears a mask": -5,
+        "Has super strength": 10,
+        "Wields a lasso": 10,
+        "Is an Amazon warrior": 10,
+        "Uses a shield": 9
+    },
+    "Joker": {
+        "Has a wand": -10,
+        "Wears glasses": -10,
+        "Is a detective": -10,
+        "Wears a mask": 0,
+        "Is a villain": 10,
+        "Has a sinister laugh": 10,
+        "Loves chaos": 10,
+        "Has green hair": 9
+    },
+    "Yoda": {
+        "Has a wand": -10,
+        "Wears glasses": -10,
+        "Is a wizard": 7,
+        "Is wise": 10,
+        "Speaks in riddles": 10,
+        "Uses a green lightsaber": 10,
+        "Is very small": 9,
+        "Trains heroes": 10
+    },
+    "Elsa": {
+        "Has a wand": -10,
+        "Wears glasses": -10,
+        "Is a wizard": 7,
+        "Has ice powers": 10,
+        "Sings a lot": 10,
+        "Is a queen": 10,
+        "Has a sister": 9
+    }
 }

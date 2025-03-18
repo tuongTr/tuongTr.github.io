@@ -6,51 +6,77 @@
     <title>Akinator Game</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
             color: #333;
             padding: 20px;
             display: flex;
         }
         #sidebar {
-            width: 250px;
-            background: #ffffff;
+            width: 280px;
+            background: white;
             padding: 20px;
-            text-align: left;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
             overflow-y: auto;
         }
+        #sidebar h3 {
+            text-align: center;
+            color: #007bff;
+        }
+        #sidebar p {
+            background: #f1f1f1;
+            padding: 8px;
+            border-radius: 5px;
+            margin: 5px 0;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        #sidebar p:hover {
+            background: #d0ebff;
+        }
         #main-content {
-            margin-left: 270px;
+            margin-left: 300px;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         #question-container {
-            background: #ffffff;
-            padding: 20px;
+            background: white;
+            padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: inline-block;
             animation: fadeIn 1s;
         }
         button {
             margin: 10px;
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-size: 18px;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
             background: #007bff;
             color: white;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
         button:hover {
             background: #0056b3;
+            transform: scale(1.05);
+        }
+        #new-game {
+            background: #28a745;
+        }
+        #new-game:hover {
+            background: #218838;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
@@ -61,11 +87,42 @@
             font-size: 22px;
         }
         #character-image {
-            max-width: 200px;
+            max-width: 250px;
             border-radius: 10px;
             margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                align-items: center;
+            }
+            #sidebar {
+                position: static;
+                width: 90%;
+                margin-bottom: 20px;
+                height: auto;
+            }
+            #main-content {
+                margin-left: 0;
+            }
         }
     </style>
+</head>
+<body>
+    <div id="sidebar">
+        <h3>Characters</h3>
+    </div>
+    <div id="main-content">
+        <h1>Welcome to Akinator!</h1>
+        <div id="question-container">
+            <p id="question"></p>
+            <button onclick="recordAnswer('yes')">Yes</button>
+            <button onclick="recordAnswer('no')">No</button>
+            <button id="new-game" onclick="newGame()" style="display:none;">New Game</button>
+        </div>
+        <div id="result"></div>
+    </div>
     <script>
         let currentQuestionIndex = 0;
         let answers = {};
@@ -98,7 +155,7 @@
                     <h2>I think your character is: ${data.character}</h2>
                     <img id="character-image" src="${data.image}" alt="${data.character}">
                     <br>
-                    <button id="new-game" onclick="newGame()" style="background: #28a745; padding: 10px 20px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; color: white;">New Game</button>
+                    <button id="new-game" onclick="newGame()">New Game</button>
                 `;
             });
         }
@@ -123,20 +180,5 @@
             });
         });
     </script>
-</head>
-<body>
-    <div id="sidebar">
-        <h3>Characters</h3>
-    </div>
-    <div id="main-content">
-        <h1>Welcome to Akinator!</h1>
-        <div id="question-container">
-            <p id="question"></p>
-            <button onclick="recordAnswer('yes')">Yes</button>
-            <button onclick="recordAnswer('no')">No</button>
-            <button id="new-game" onclick="newGame()" style="display:none; background: #28a745;">New Game</button>
-        </div>
-        <div id="result"></div>
-    </div>
 </body>
 </html>
